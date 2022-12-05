@@ -1,7 +1,6 @@
 package org.launchcode.techjobs.persistent;
 
 import mockit.Expectations;
-import mockit.Mock;
 import mockit.Mocked;
 import org.junit.jupiter.api.Test;
 import org.launchcode.techjobs.persistent.controllers.HomeController;
@@ -196,7 +195,7 @@ public class TestTaskFour extends AbstractTest {
     @Test
     public void testListControllerListMethodSetsFormFieldData (@Mocked Model model, @Mocked SkillRepository skillRepository, @Mocked EmployerRepository employerRepository) throws ClassNotFoundException, NoSuchFieldException, IllegalAccessException {
         Class listControllerClass = getClassByName("controllers.ListController");
-        ListController listController = new ListController();
+        ListController listController = new ListController(employerRepository, skillRepository);
 
         new Expectations() {{
             model.addAttribute("employers", any);

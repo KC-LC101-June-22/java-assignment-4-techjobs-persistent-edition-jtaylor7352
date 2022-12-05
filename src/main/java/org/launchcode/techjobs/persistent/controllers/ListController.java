@@ -31,7 +31,9 @@ public class ListController {
 
     static HashMap<String, String> columnChoices = new HashMap<>();
 
-    public ListController () {
+    public ListController (EmployerRepository employerRepository, SkillRepository skillRepository) {
+        this.employerRepository = employerRepository;
+        this.skillRepository = skillRepository;
 
         columnChoices.put("all", "All");
         columnChoices.put("employer", "Employer");
